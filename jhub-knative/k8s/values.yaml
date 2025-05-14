@@ -1,0 +1,14 @@
+# jh-values.yaml
+hub:
+  image:
+    name: docker.io/mpisman/jhub-knative-spawner
+    tag: latest
+  config:
+    JupyterHub:
+      spawner_class: "jhub_knative_spawner"
+    KnativeSpawner:
+      namespace: "serverless"
+      image: "docker.io/mpisman/jupyterlab:latest"
+      min_scale: 0
+      max_scale: 3
+      concurrency: 1

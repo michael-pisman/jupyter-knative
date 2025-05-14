@@ -1,0 +1,19 @@
+# jh-values.yaml
+proxy:
+  secretToken: "b351b4565c9bd82546e5bd9f9616c19b84226929121c550ae6c16a9d3f0db04b"
+
+hub:
+  config:
+    # Tell JupyterHub to use the DummyAuthenticator
+    JupyterHub:
+      authenticator_class: dummy
+    # Set the shared password for all users
+    DummyAuthenticator:
+      password: testpassword
+
+singleuser:
+  image:
+    name: jupyter/base-notebook
+    tag: latest
+  storage:
+    type: none

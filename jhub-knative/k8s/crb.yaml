@@ -1,0 +1,12 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: knative-spawner-binding
+subjects:
+- kind: ServiceAccount
+  name: user-scheduler
+  namespace: jhub-knative
+roleRef:
+  kind: ClusterRole
+  name: knative-spawner-role
+  apiGroup: rbac.authorization.k8s.io

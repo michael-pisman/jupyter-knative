@@ -1,0 +1,21 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: jupyterlab
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/minScale: "0"
+        autoscaling.knative.dev/maxScale: "5"
+        # autoscaling.knative.dev/target: "1"
+    spec:
+      containerConcurrency: 10
+      containers:
+      - image: docker.io/mpisman/jupyterlab:latest
+        env:
+        - name: JUPYTER_TOKEN
+          value: "test-token"
+        ports:
+        - containerPort: 8888
+

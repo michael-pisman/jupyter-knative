@@ -1,0 +1,17 @@
+apiVersion: traefik.io/v1alpha1
+kind: IngressRoute
+metadata:
+  name: jhub
+  namespace: jhub
+spec:
+  entryPoints:
+  - websecure
+  routes:
+  - kind: Rule
+    match: Host(`jhub. domain.com`) || HostRegexp(`^.+\.jhub.1cl\.cc$`)
+    services:
+    - name: proxy-public
+      port: 80
+  tls:
+    secretName: jhub-1cl-cc-tls
+

@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: jhub-1cl-cc-tls
+  namespace: jhub
+spec:
+  secretName: jhub-1cl-cc-tls
+  dnsNames:
+    - "jhub. domain.com"
+    - "*.jhub. domain.com"
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
