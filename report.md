@@ -1,12 +1,14 @@
 # Comparative Study of JupyterLab Deployment Models
 
-*Datacenter-Scale Computing Project Report*
+*EECS 268*
 
 Michael Pisman
 
 UC Merced
 
 Spring 2025
+
+https://github.com/michael-pisman/jupyter-knative
 
 
 ## Abstract
@@ -24,6 +26,8 @@ Knative Serving is a Kubernetes extension that treats containers as serverless f
 In the traditional Kubernetes model, we create a Deployment and optionally use the Horizontal Pod Autoscaler (HPA) to scale pods based on CPU use. The HPA cannot scale to zero, so pods remain running until they are manually removed or cleaned up by a separate process. JupyterHub’s default KubeSpawner creates one pod per user, giving good isolation but maintaining idle pods when the user is away.
 
 Existing Jupyter solutions include Elyra pipelines, which turn notebooks into batch jobs, and Jupyter Enterprise Gateway, which runs kernels remotely but still launches a container for each kernel. These systems address different needs but do not combine low idle cost with fast interactive startup at scale.
+
+<div class="page"/>
 
 ## Implementation Overview
 
